@@ -5,7 +5,10 @@
 */
 
 
-
+let principal = 200000;
+let interestRate = 0.05;
+let years = 30;
+const name = 'Dee';
 
 
 // 🏡 Task 1.5: Simple Math
@@ -16,6 +19,8 @@
 */
 
 
+let monthlyInterestRate = interestRate / 12;
+let periods = years * 12;
 
 
 // 🏡 Task 2: Harder Math
@@ -37,8 +42,14 @@ When your math is correct, monthlyRate will equal 1073.64
 */
 
 
+let n1 = Math.pow(1 + monthlyInterestRate, periods);
+let n2 = n1 * monthlyInterestRate;
+let numerator = n2; 
+let denominator = n1 - 1;
+let monthlyRate = principal * (numerator / denominator);
+// console.log(monthlyRate)
 
-
+    
 // 🏡 Task 3: Function
 /* Create a function called `mortgageCalculator` that combines all of the steps from task 1 and 2 and returns a sentence "{Name}, your monthly rate is ${monthlyRate}"
 
@@ -46,7 +57,10 @@ If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly 
 */
 
 
-
+function mortgageCalculator(){
+   return  console.log(`${name}, your monthly rate is ${monthlyRate}`)
+}
+// const monthlyRateString = mortgageCalculator()
 
 
 // 🏡 Task 4: Arguments and Parameters
@@ -57,6 +71,13 @@ mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 */
 
 
+function mortgageCalculator(P,I,N){
+    I = I / 12;
+    N = N * 12;
+    let monthlyRate = P * ((I * Math.pow((1 + I), N)) / ((Math.pow((1 + I), N)) - 1));
+    return console.log(`${name}, your monthly rate is ${monthlyRate}`)
+}
+// (mortgageCalculator(500000, 0.05, 30));
 
 
 
@@ -69,6 +90,22 @@ Hint: To drop an interest rate by 5% you can take monthlyRate and multiply it by
 */
 
 
+function mortgageCalculator(P,I,N,C,){
+    I = I / 12;
+    N = N * 12;
+    let monthlyRate = P * ((I * Math.pow((1 + I), N)) / ((Math.pow((1 + I), N)) - 1));
+
+    if(C < 0 || C > 800 || typeof C !== 'number') {
+        console.log('Please enter a number between 0 and 800')
+    }else if(C > 740){
+       return monthlyRate *= 0.95;
+    }else if(C < 660){
+        return monthlyRate *=1.05;
+    }else {
+        return monthlyRate;
+    }
+}
+// console.log(mortgageCalculator(200000, 0.05, 30, 700));
 
 
 // 🏡 Task 6: Loops
@@ -88,6 +125,18 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 */
 
 
+function variableInterestRate(P,interest,periods) {
+    let counter = interest - 0.02
+    for (let i = 0; i < 9 ; i++) {
+        let I = counter / 12;
+        let N = periods * 12;
+        let monthlyRate = P * ((I * Math.pow((1 + I), N)) / ((Math.pow((1 + I), N)) - 1));
+        console.log(`${name}, with an interest rate of ${counter.toFixed(3)}, your monthly rate is $${monthlyRate.toFixed(0)}`)
+       counter = counter + 0.005;
+       
+    }
+}
+// variableInterestRate(200000, 0.04, 30)
 
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
