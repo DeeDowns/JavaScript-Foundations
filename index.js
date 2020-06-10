@@ -132,11 +132,11 @@ function variableInterestRate(P,interest,periods) {
         let N = periods * 12;
         let monthlyRate = P * ((I * Math.pow((1 + I), N)) / ((Math.pow((1 + I), N)) - 1));
         console.log(`${name}, with an interest rate of ${counter.toFixed(3)}, your monthly rate is $${monthlyRate.toFixed(0)}`)
-       counter = counter + 0.005;
+        counter = counter + 0.005;
        
     }
 }
-// variableInterestRate(200000, 0.04, 30)
+console.log(variableInterestRate(200000, 0.04, 30, 600))
 
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
