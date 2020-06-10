@@ -56,6 +56,7 @@ let monthlyRate = principal * (numerator / denominator);
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
 
+
 function mortgageCalculator(){
    return  console.log(`${name}, your monthly rate is ${monthlyRate}`)
 }
@@ -76,7 +77,6 @@ function mortgageCalculator(P,I,N){
     let monthlyRate = P * ((I * Math.pow((1 + I), N)) / ((Math.pow((1 + I), N)) - 1));
     return console.log(`${name}, your monthly rate is ${monthlyRate}`)
 }
-
 // (mortgageCalculator(500000, 0.05, 30));
 
 
@@ -105,8 +105,7 @@ function mortgageCalculator(P,I,N,C,){
         return monthlyRate;
     }
 }
-
-// console.log(mortgageCalculator(200000, 0.05, 30, 400));
+// console.log(mortgageCalculator(200000, 0.05, 30, 700));
 
 
 // 🏡 Task 6: Loops
@@ -125,6 +124,7 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
+
 function variableInterestRate(P,interest,periods) {
     let counter = interest - 0.02
     for (let i = 0; i < 9 ; i++) {
@@ -136,7 +136,8 @@ function variableInterestRate(P,interest,periods) {
        
     }
 }
-variableInterestRate(200000, 0.04, 30)
+// variableInterestRate(200000, 0.04, 30)
+
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
 
